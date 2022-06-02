@@ -1,0 +1,18 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+/* Form */
+.form {
+  background: rgb(0, 101, 219);
+  background: linear-gradient(
+    90deg,
+    rgb(0, 101, 219) 50%,
+    rgb(0, 212, 255) 100%
+  );
+}

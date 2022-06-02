@@ -1,0 +1,12 @@
+.profilePic2 {
+  width: 40%;
+  height: 40%;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column-reverse;
+  }
+}

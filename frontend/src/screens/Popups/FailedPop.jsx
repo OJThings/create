@@ -5,7 +5,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@material-ui/icons";
 import React from "react";
 import ActionButton from "./ActionButton";
 

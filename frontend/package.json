@@ -4,7 +4,8 @@
   "private": true,
   "proxy": "http://127.0.0.1:5000",
   "engines": {
-    "npm": "16.14.2"
+    "npm": "16.14.2",
+    "node": "16.15.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

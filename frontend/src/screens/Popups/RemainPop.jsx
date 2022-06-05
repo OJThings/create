@@ -2,11 +2,10 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-
+import { makeStyles } from '@material-ui/core/styles';
 import React from "react";
 import ActionButton from "./ActionButton";
 

@@ -108,7 +108,7 @@ const ReportPage = () => {
                       <Button
                         variant="info"
                         className="mx-2"
-                        href={`/pdf/${report._id}`}
+                        href={`/viewreports/${report._id}`}
                       >
                         View Report
                       </Button>

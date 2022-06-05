@@ -1,11 +1,14 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../actions/userActions";
 import ErrorMessage from "../../components/Actions/ErrorMessage";
 import Loading from "../../components/Actions/Loading";
-
+import "./Register.css";
 const Register = () => {
+  const [state, setState] = useState(false);
   const [fname, setFname] = useState("");
   const [mname, setMname] = useState("");
   const [lname, setLname] = useState("");
@@ -80,6 +83,10 @@ const Register = () => {
           pic
         )
       );
+  };
+
+  const toggleBtn = () => {
+    setState((prevState) => !prevState);
   };
   return (
     <>
@@ -168,6 +175,7 @@ const Register = () => {
                     name="yearsection"
                     value={yearsection}
                     onChange={(e) => setYearsection(e.target.value)}
+                    placeholder="4L-G1"
                   />
                 </div>
                 <div className="form-group">
@@ -180,13 +188,14 @@ const Register = () => {
                     name="studentnumber"
                     value={studentnumber}
                     onChange={(e) => setStudentnumber(e.target.value)}
+                    placeholder="2018-12345"
                   />
                 </div>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="inputEmail4">Password</label>
                     <input
-                      type="password"
+                      type={state ? "text" : "password"}
                       id="password"
                       className="form-control"
                       name="password"
@@ -194,11 +203,24 @@ const Register = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
+                    {state ? (
+                      <FontAwesomeIcon
+                        icon={faEyeSlash}
+                        className="password-icon"
+                        onClick={toggleBtn}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        className="password-icon"
+                        onClick={toggleBtn}
+                      />
+                    )}
                   </div>
                   <div className="form-group col-md-6">
                     <label htmlFor="inputPassword4">Confirm password</label>
                     <input
-                      type="password"
+                      type={state ? "text" : "password"}
                       id="password2"
                       className="form-control"
                       name="password2"
@@ -206,6 +228,19 @@ const Register = () => {
                       value={confirmpassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                     />
+                    {state ? (
+                      <FontAwesomeIcon
+                        icon={faEyeSlash}
+                        className="password-icon"
+                        onClick={toggleBtn}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        className="password-icon"
+                        onClick={toggleBtn}
+                      />
+                    )}
                   </div>
                 </div>
                 {picMessage && (

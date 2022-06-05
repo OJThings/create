@@ -60,7 +60,7 @@ const getReportById = asyncHandler(async (req, res) => {
 });
 
 const updateReport = asyncHandler(async (req, res) => {
-  const { ans1, ans2, ans3, desc } = req.body;
+  const { ans1, ans2, ans3, desc, status } = req.body;
 
   const report = await Report.findById(req.params.id);
 
@@ -74,6 +74,7 @@ const updateReport = asyncHandler(async (req, res) => {
     report.ans2 = ans2;
     report.ans3 = ans3;
     report.desc = desc;
+    report.status = status;
 
     const updatedReport = await report.save();
     res.json(updatedReport);

@@ -12,7 +12,7 @@ import "./Paginate.css";
 const MyProps = ({ search }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [reportPerPage] = useState(5);
+  const [reportPerPage] = useState(3);
   const [pageNumber, setPageNumber] = useState(0);
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

@@ -153,7 +153,7 @@ export const deleteReportAction = (id) => async (dispatch, getState) => {
 };
 
 export const updateReportAction =
-  (id, ans1, ans2, ans3, desc) => async (dispatch, getState) => {
+  (id, ans1, ans2, ans3, desc, status) => async (dispatch, getState) => {
     try {
       dispatch({
         type: REPORTS_UPDATE_REQUEST,
@@ -178,6 +178,7 @@ export const updateReportAction =
           ans2,
           ans3,
           desc,
+          status,
         },
         config
       );

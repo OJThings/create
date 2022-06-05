@@ -18,6 +18,7 @@ import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import Register from "./screens/RegisterScreen/Register";
 import ReportCards from "./screens/ReportCards/ReportCards";
 import UpdateReport from "./screens/UpdateReport/UpdateReport";
+import ViewReport from "./admin/ViewReport";
 const App = () => {
   const [search, setSearch] = useState("");
   return (
@@ -40,6 +41,10 @@ const App = () => {
             <Route
               path="/reports/:id"
               element={<UpdateReport search={search} />}
+            />
+            <Route
+              path="/viewreports/:id"
+              element={<ViewReport />}
             />
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />

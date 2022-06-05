@@ -1,12 +1,16 @@
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../actions/userActions";
 import ErrorMessage from "../../components/Actions/ErrorMessage";
 import Loading from "../../components/Actions/Loading";
+import "./Login.css";
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [state, setState] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +27,10 @@ const Login = ({ history }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(login(email, password));
+  };
+
+  const toggleBtn = () => {
+    setState((prevState) => !prevState);
   };
   return (
     <>
@@ -63,7 +71,7 @@ const Login = ({ history }) => {
                     Password
                   </label>
                   <input
-                    type="password"
+                    type={state ? "text" : "password"}
                     className="form-control"
                     id="password"
                     name="password"
@@ -71,6 +79,19 @@ const Login = ({ history }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  {state ? (
+                    <FontAwesomeIcon
+                      icon={faEyeSlash}
+                      className="password-icon2"
+                      onClick={toggleBtn}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="password-icon2"
+                      onClick={toggleBtn}
+                    />
+                  )}
                 </div>
                 <button type="submit" className="btn btn-primary w-100 mt-4">
                   Login

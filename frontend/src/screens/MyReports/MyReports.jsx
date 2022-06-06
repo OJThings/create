@@ -149,7 +149,7 @@ const MyProps = ({ search }) => {
                         <footer className="blockquote-footer">
                           Created on{" "}
                           <cite title="Source Title">
-                            {report.createdAt.substring(0, 10)}
+                            {report.createdAt.toLocaleString()}
                           </cite>
                         </footer>
                       </blockquote>

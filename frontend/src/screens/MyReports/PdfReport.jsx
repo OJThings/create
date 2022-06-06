@@ -20,6 +20,7 @@ function PdfReport() {
   const [uid, setUid] = useState("");
   const [header, setHeader] = useState("");
   const [titledesc] = useState("Description");
+  const [gua, setGua] = useState("");
   const [date, setDate] = useState("");
   const { id } = useParams();
   const userLogin = useSelector((state) => state.userLogin);
@@ -43,6 +44,7 @@ function PdfReport() {
       setUid(data.uid);
       setDate(data.createdAt);
       setStatus(data.status);
+      setGua(data.gua);
     };
 
     fetching();
@@ -137,11 +139,11 @@ function PdfReport() {
                         assistance. Thanks a lot.
                       </p>
                       <div className="field">
-                        Guarantor: <span>sample</span>
+                        Guarantor: <span>{gua}</span>
                       </div>
 
                       <div className="field">
-                        Checked date: <span>sample2</span>
+                        Checked date: <span>{date.substring(0, 10)}</span>
                       </div>
                       <div className="field grand-total">
                         Status: <span>{status}</span>

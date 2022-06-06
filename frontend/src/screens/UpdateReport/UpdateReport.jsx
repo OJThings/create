@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   deleteReportAction,
   listReports,
-  updateReportAction,
+  updateReportAction
 } from "../../actions/reportActions";
 import ErrorMessage from "../../components/Actions/ErrorMessage";
 import Loading from "../../components/Actions/Loading";
@@ -24,7 +24,6 @@ function UpdateReport({ search }) {
   const [titledesc] = useState("Description");
   const [date, setDate] = useState("");
   const { id } = useParams();
-
   const dispatch = useDispatch();
   const reportUpdate = useSelector((state) => state.reportUpdate);
   const { loading, error } = reportUpdate;
@@ -53,6 +52,7 @@ function UpdateReport({ search }) {
       setQues3(data.ques3);
       setDesc(data.desc);
       setDate(data.updatedAt);
+
     };
 
     fetching();
@@ -68,7 +68,7 @@ function UpdateReport({ search }) {
   const updateHandler = (e) => {
     e.preventDefault();
     dispatch(updateReportAction(id, ans1, ans2, ans3, desc));
-    if (!ans1 || !ans2 || !ans3 || !desc) return;
+    if (!ans1 || !ans2 || !ans3 || !desc ) return;
     resetHandler();
     navigate("/myreports");
   };

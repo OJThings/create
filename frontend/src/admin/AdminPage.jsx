@@ -23,7 +23,7 @@ const AdminPage = () => {
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure")) {
       dispatch(deleteUserAction(id));
-      window.location.reload();
+      navigate("/");
     }
   };
   useEffect(() => {
@@ -31,8 +31,10 @@ const AdminPage = () => {
   }, [dispatch, navigate]);
 
   return (
+    
     <div className="container mt-5 mb-5">
       <div className="container mt-5 mb-5">
+        
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button

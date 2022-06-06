@@ -24,6 +24,7 @@ const createReport = asyncHandler(async (req, res) => {
     uid,
     pic,
     header,
+    gua,
   } = req.body;
 
   const report = new Report({
@@ -40,7 +41,8 @@ const createReport = asyncHandler(async (req, res) => {
     titledesc,
     uid,
     pic,
-    header
+    header,
+    gua
   });
 
   const createdReport = await report.save();
@@ -60,7 +62,7 @@ const getReportById = asyncHandler(async (req, res) => {
 });
 
 const updateReport = asyncHandler(async (req, res) => {
-  const { ans1, ans2, ans3, desc, status } = req.body;
+  const { ans1, ans2, ans3, desc, status, gua } = req.body;
 
   const report = await Report.findById(req.params.id);
 
@@ -74,6 +76,7 @@ const updateReport = asyncHandler(async (req, res) => {
     report.ans2 = ans2;
     report.ans3 = ans3;
     report.desc = desc;
+    report.gua = gua;
     report.status = status;
 
     const updatedReport = await report.save();
@@ -100,6 +103,8 @@ const deleteReport = asyncHandler(async (req, res) => {
     throw new Error("report not Found");
   }
 });
+
+
 module.exports = {
   getReports,
   createReport,

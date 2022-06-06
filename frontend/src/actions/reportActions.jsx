@@ -63,6 +63,7 @@ export const createReportAction =
     uid,
     pic,
     header,
+    gua
   ) =>
   async (dispatch, getState) => {
     try {
@@ -97,6 +98,7 @@ export const createReportAction =
           uid,
           pic,
           header,
+          gua,
         },
 
         config
@@ -153,7 +155,7 @@ export const deleteReportAction = (id) => async (dispatch, getState) => {
 };
 
 export const updateReportAction =
-  (id, ans1, ans2, ans3, desc, status) => async (dispatch, getState) => {
+  (id, ans1, ans2, ans3, desc, status, gua) => async (dispatch, getState) => {
     try {
       dispatch({
         type: REPORTS_UPDATE_REQUEST,
@@ -179,6 +181,7 @@ export const updateReportAction =
           ans3,
           desc,
           status,
+          gua,
         },
         config
       );
@@ -198,3 +201,4 @@ export const updateReportAction =
       });
     }
   };
+

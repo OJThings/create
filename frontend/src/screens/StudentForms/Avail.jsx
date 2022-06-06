@@ -27,6 +27,7 @@ const Avail = () => {
   const [header] = useState(
     "https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/242865177_3887846774648522_5958541561794474525_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEP2IVqX3kAQUBpu-Rl7G5D3bvpxV2g0andu-nFXaDRqcDeHK_K7jfERGDk-m2CGHdOQA9tEybN20dn4eqzTD-o&_nc_ohc=4ujpLewS1JQAX9F4Buc&_nc_ht=scontent.fmnl17-3.fna&oh=00_AT-1WQnlMagYYOfhcurDdw9lngjZpOE01Bi4xC69KY5_Bg&oe=629903D0"
   );
+  const [gua] = useState("None");
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -88,6 +89,7 @@ const Avail = () => {
         uid,
         pic,
         header,
+        gua
       )
     );
     resetHandler();

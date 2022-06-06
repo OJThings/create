@@ -11,6 +11,8 @@ const Others = () => {
   const [ans2, setAns2] = useState("");
   const [ques1, setQues1] = useState("What?");
   const [ques2, setQues2] = useState("Who?");
+  const [ques3, setQues3] = useState("Where?");
+  const [ans3, setAns3] = useState("");
   const [desc, setDesc] = useState("");
   const [inctype] = useState("Others");
   const [titledesc] = useState("Description");
@@ -21,6 +23,7 @@ const Others = () => {
   const [header] = useState(
     "https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/242865177_3887846774648522_5958541561794474525_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEP2IVqX3kAQUBpu-Rl7G5D3bvpxV2g0andu-nFXaDRqcDeHK_K7jfERGDk-m2CGHdOQA9tEybN20dn4eqzTD-o&_nc_ohc=4ujpLewS1JQAX9F4Buc&_nc_ht=scontent.fmnl17-3.fna&oh=00_AT-1WQnlMagYYOfhcurDdw9lngjZpOE01Bi4xC69KY5_Bg&oe=629903D0"
   );
+  const [gua] = useState("None");
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -69,15 +72,18 @@ const Others = () => {
       createReportAction(
         ans1,
         ans2,
+        ans3,
         desc,
         inctype,
         status,
         ques1,
         ques2,
+        ques3,
         titledesc,
         uid,
         pic,
-        header
+        header,
+        gua
       )
     );
     resetHandler();
@@ -104,7 +110,6 @@ const Others = () => {
               onChange={(e) => setAns1(e.target.value)}
             />
           </Form.Group>
-
           <Form.Group as={Col}>
             <Form.Label>{ques2}</Form.Label>
             <Form.Control
@@ -115,6 +120,18 @@ const Others = () => {
               id="ans2"
               value={ans2}
               onChange={(e) => setAns2(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group as={Col}>
+            <Form.Label>{ques3}</Form.Label>
+            <Form.Control
+              key="key"
+              className="form-control"
+              name="ans3"
+              type="text"
+              id="ans3"
+              value={ans3}
+              onChange={(e) => setAns3(e.target.value)}
             />
           </Form.Group>
         </Row>

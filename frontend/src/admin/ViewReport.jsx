@@ -7,7 +7,7 @@ import {
   deleteReportAction,
   listReports,
   updateReportAction,
-} from '../actions/reportActions';
+} from "../actions/reportActions";
 import ErrorMessage from "../components/Actions/ErrorMessage";
 import Loading from "../components/Actions/Loading";
 import MainScreen from "../components/MainScreen/MainScreen";
@@ -22,6 +22,7 @@ function ViewReport() {
   const [ques3, setQues3] = useState("");
   const [desc, setDesc] = useState("");
   const [titledesc] = useState("Description");
+  const [gua, setGua] = useState("");
   const [date, setDate] = useState("");
   const [status, setStatus] = useState();
   const { id } = useParams();
@@ -55,6 +56,7 @@ function ViewReport() {
       setStatus(data.status);
       setDesc(data.desc);
       setDate(data.updatedAt);
+      setGua(data.gua);
     };
 
     fetching();
@@ -69,8 +71,8 @@ function ViewReport() {
 
   const updateHandler = (e) => {
     e.preventDefault();
-    dispatch(updateReportAction(id, ans1, ans2, ans3, desc, status));
-    if (!ans1 || !ans2 || !ans3 || !desc ||!status) return;
+    dispatch(updateReportAction(id, ans1, ans2, ans3, desc, status, gua));
+    if (!ans1 || !ans2 || !ans3 || !desc || !status || !gua) return;
     resetHandler();
     navigate("/admin");
   };
@@ -87,41 +89,66 @@ function ViewReport() {
               <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
             )}
             <Form.Group>
+              <strong>Status</strong>
+              <div>{status}</div>
+            </Form.Group>
+            <Form.Group className="mt-4">
               <strong>{ques1}</strong>
-              <div>
-                {ans1}
-                </div>
+              <div>{ans1}</div>
             </Form.Group>
-            <Form.Group  className="mt-4">
+            <Form.Group className="mt-4">
               <strong>{ques2}</strong>
-              <div>
-                {ans2}
-                </div>
+              <div>{ans2}</div>
             </Form.Group>
-            <Form.Group  className="mt-4">
+            <Form.Group className="mt-4">
               <strong>{ques3}</strong>
-              <div>
-                {ans3}
-                </div>
+              <div>{ans3}</div>
             </Form.Group>
-            <Form.Group  className="mt-4">
+            <Form.Group className="mt-4">
               <strong>{titledesc}</strong>
-              <div>
-                {desc}
-                </div>
-            </Form.Group >
+              <div>{desc}</div>
+            </Form.Group>
+
             <Form.Group className="mt-4">
               <strong>Status</strong>
-              <Form.Control
-                key="key"
-                className="form-control"
-                name="status"
-                type="text"
-                id="status"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              />
+              <br />
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="status"
+                  id="status"
+                  value="Solved"
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+                <label class="form-check-label" for="inlineRadio1">
+                  Solved
+                </label>
+              </div>
+              <div class="form-check form-check-inline mb-4">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="status"
+                  id="status"
+                  value="Processing"
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+                <label class="form-check-label" for="inlineRadio2">
+                  Processing
+                </label>
+              </div>
             </Form.Group>
+            <strong>Guarantor</strong>
+            <Form.Control
+              key="key"
+              className="form-control"
+              name="gua"
+              type="text"
+              id="gua"
+              value={gua}
+              onChange={(e) => setGua(e.target.value)}
+            />
             {loading && <Loading size={50} />}
             <Button variant="primary" type="submit" className="mt-3">
               Update Report
@@ -137,7 +164,7 @@ function ViewReport() {
         </Card.Body>
 
         <Card.Footer className="text-muted">
-          Updated on - {date.substring(0, 10)}
+          Updated on - {date.toLocaleString()}
         </Card.Footer>
       </Card>
     </MainScreen>

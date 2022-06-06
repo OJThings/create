@@ -13,6 +13,7 @@ const ReportPage = () => {
 
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
+  
   useEffect(() => {
     dispatch(listReports());
   }, [dispatch, navigate]);
@@ -91,30 +92,35 @@ const ReportPage = () => {
               <th scope="col">Student Number</th>
               <th scope="col">Year & Section</th>
               <th scope="col">E-mail</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {users?.map((user) => (
               <>
-                {reports?.map((report) => (
-                  <>
-                    <tr>
-                      <td>{user.fname}</td>
-                      <td>{user.lname}</td>
-                      <td>{user.studentnumber}</td>
-                      <td>{user.yearsection}</td>
-                      <td>{user.email}</td>
-                      <Button
-                        variant="info"
-                        className="mx-2"
-                        href={`/viewreports/${report._id}`}
-                      >
-                        View Report
-                      </Button>
-                    </tr>
-                  </>
-                ))}
+                {reports
+                  ?.sort((a, b) => a.createdAt > b.createdAt ? -1 : 1)
+                  .map((report) => (
+                    <>
+                      <tr>
+                        <td>{user.fname}</td>
+                        <td>{user.lname}</td>
+                        <td>{user.studentnumber}</td>
+                        <td>{user.yearsection}</td>
+                        <td>{user.email}</td>
+                        <td>{report.createdAt}</td>
+                        <Button
+                          variant="info"
+                          className="mx-2"
+                          href={`/viewreports/${report._id}`}
+                        >
+                          View Report
+                        </Button>
+                      </tr>
+                    </>
+                  ))}
               </>
             ))}
           </tbody>

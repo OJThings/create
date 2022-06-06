@@ -49,6 +49,10 @@ const reportSchema = mongoose.Schema(
       type: String,
       required: [false, "Please add a text value"],
     },
+    gua: {
+      type: String,
+      required: [false, "Please add a text value"],
+    },
     pic: {
       type: String,
       required: true,

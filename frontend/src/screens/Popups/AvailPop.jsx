@@ -2,9 +2,9 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Typography,
+  Typography, 
 } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from '@mui/icons-material/Close';
 import { makeStyles } from "@material-ui/core/styles";
 
 import React from "react";

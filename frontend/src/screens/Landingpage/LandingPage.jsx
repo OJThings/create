@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Video from "../../videos/video.mp4";

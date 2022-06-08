@@ -17,6 +17,19 @@ import Inc from "../StudentForms/Inc";
 import Lower from "../StudentForms/Lower";
 import Others from "../StudentForms/Others";
 import Remain from "../StudentForms/Remain";
+import {
+  ServicesIcon,
+  ServicesCard,
+  ServicesH2,
+  ServicesContainer,
+} from "./ReportCardsElements";
+import remain from "../../images/remain.svg";
+import adding from "../../images/adding.svg";
+import incomplete from "../../images/incomplete.svg";
+import failed from "../../images/failed.svg";
+import not from "../../images/not.svg";
+import avail from "../../images/avail.svg";
+import other from "../../images/other.svg";
 const ReportCards = () => {
   const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
@@ -46,97 +59,75 @@ const ReportCards = () => {
       <MainScreen
         title={`Welcome Back ${userInfo.fname} ${userInfo.mname} ${userInfo.lname}`}
       ></MainScreen>
-      <div className="container justify-content-center">
+      <ServicesContainer>
         <div className="row">
           <div className="col-sm">
-            <h5 className="card-header">Remaining Balance </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={() => setFirst(true)}
-              >
-                Click here
-              </button>
+            <ServicesCard>
+              <ServicesIcon src={remain}></ServicesIcon>
 
-              <RemainPop title="Student form" first={first} setFirst={setFirst}>
-                <Remain />
-              </RemainPop>
-            </div>
-            <h5 className="card-header mt-3">Failed a subject </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={() => setFourth(true)}
-              >
-                Click here
-              </button>
-              <FailedPop
-                title="Student form"
-                fourth={fourth}
-                setFourth={setFourth}
-              >
-                <Failed />
-              </FailedPop>
-            </div>
-            <h5 className="card-header mt-3">Adding/Changing </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={() => setSecond(true)}
-              >
-                Click here
-              </button>
-              <AddingPop
-                title="Student form"
-                second={second}
-                setSecond={setSecond}
-              >
-                <Adding />
-              </AddingPop>
-            </div>
-            <h5 className="card-header">Subjects with INC </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={() => setThird(true)}
-              >
-                Click here
-              </button>
-              <IncPop title="Student form" third={third} setThird={setThird}>
-                <Inc />
-              </IncPop>
-            </div>
+              <div className="tiles">
+                <ServicesH2>Remaining Balance</ServicesH2>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setFirst(true)}
+                >
+                  Click here
+                </button>
+
+                <RemainPop
+                  title="Student form"
+                  first={first}
+                  setFirst={setFirst}
+                >
+                  <Remain />
+                </RemainPop>
+              </div>
+            </ServicesCard>
+
+            <ServicesCard>
+              <div className="tiles">
+                <ServicesIcon src={incomplete}></ServicesIcon>
+                <ServicesH2>Subjects with INC</ServicesH2>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setThird(true)}
+                >
+                  Click here
+                </button>
+                <IncPop title="Student form" third={third} setThird={setThird}>
+                  <Inc />
+                </IncPop>
+              </div>
+            </ServicesCard>
           </div>
-          <div className="col-lg mb-5">
-            <h5 className="card-header">
-              Subjects from lower year level not taken yet{" "}
-            </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
+          <div className="col-sm">
+            <ServicesCard>
+              <div className="tiles">
+                <ServicesIcon src={failed}></ServicesIcon>
+                <ServicesH2>Failed Subject</ServicesH2>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setFourth(true)}
+                >
+                  Click here
+                </button>
+                <FailedPop
+                  title="Student form"
+                  fourth={fourth}
+                  setFourth={setFourth}
+                >
+                  <Failed />
+                </FailedPop>
+              </div>
+            </ServicesCard>
+            <ServicesCard>
+              <ServicesIcon src={not}></ServicesIcon>
+              <div className="tiles">
+                <ServicesH2>
+                  Subjects from lower year level not taken yet
+                </ServicesH2>
+              </div>
+
               <button
                 className="btn btn-primary"
                 onClick={() => setFifth(true)}
@@ -146,17 +137,36 @@ const ReportCards = () => {
               <LowerPop title="Student form" fifth={fifth} setFifth={setFifth}>
                 <Lower />
               </LowerPop>
-            </div>
-            <h5 className="card-header mt-3">
-              Subjects that are not available on the current semester not yet
-              taken{" "}
-            </h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
+            </ServicesCard>
+          </div>
+          <div className="col-sm">
+            <ServicesCard>
+              <div className="tiles">
+                <ServicesIcon src={adding}></ServicesIcon>
+                <ServicesH2>Adding/Changing</ServicesH2>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setSecond(true)}
+                >
+                  Click here
+                </button>
+                <AddingPop
+                  title="Student form"
+                  second={second}
+                  setSecond={setSecond}
+                >
+                  <Adding />
+                </AddingPop>
+              </div>
+            </ServicesCard>
+            <ServicesCard>
+              <ServicesIcon src={avail}></ServicesIcon>
+              <div className="tiles">
+                <ServicesH2>
+                  Subjects that are not available on the current semester not
+                  yet taken{" "}
+                </ServicesH2>
+              </div>
               <button
                 className="btn btn-primary"
                 onClick={() => setSixth(true)}
@@ -166,31 +176,10 @@ const ReportCards = () => {
               <AvailPop title="Student form" sixth={sixth} setSixth={setSixth}>
                 <Avail />
               </AvailPop>
-            </div>
-            <h5 className="card-header mt-3">Others</h5>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={() => setSeventh(true)}
-              >
-                Click here
-              </button>
-              <OthersPop
-                title="Student form"
-                seventh={seventh}
-                setSeventh={setSeventh}
-              >
-                <Others />
-              </OthersPop>
-            </div>
+            </ServicesCard>
           </div>
         </div>
-      </div>
+      </ServicesContainer>
     </>
   );
 };

@@ -43,7 +43,7 @@ const Remain = () => {
     setPicMessage(null);
     if (
       pics ===
-      "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+      "http://www.aaru.edu.jo/_layouts/mobile/dispform.aspx?List=78b536db%2De7c7%2D45d9%2Da661%2Ddb2a2aa2fbaf&View=6efc759a%2D0646%2D433c%2Dab6e%2D2f027ffe0799&RootFolder=%2Fwebsites%2Faaru2%2Fwp%2Dcontent%2Fplugins%2Flearnpress%2Fassets%2Fimages&ID=4786"
     ) {
       return setPicMessage("Please Select an Image");
     }
@@ -174,7 +174,7 @@ const Remain = () => {
           </div>
           <img src={pic} alt={picMessage} className="profilePic2" />
           <Card.Footer className="text-muted">
-            Creating on - {new Date().toLocaleDateString()}
+            Creating on - {new Date().toLocaleString()}
           </Card.Footer>
         </Form.Group>
         <Button variant="dark" type="submit">

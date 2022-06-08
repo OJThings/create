@@ -110,18 +110,59 @@ const Remain = () => {
           </Form.Group>
           <Form.Group as={Col}>
             <Form.Label>{ques2}</Form.Label>
-            <Form.Control
-              key="key"
-              className="form-control"
-              name="ans2"
-              type="text"
-              id="ans2"
-              value={ans2}
-              onChange={(e) => setAns2(e.target.value)}
-            />
-            <h6 id="emailHelp" className="form-text text-muted">
-              Tuition Fee, Books, Reservation Fee, Other
-            </h6>
+            <br />
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="ans2"
+                id="ans2"
+                value="Tuition Fee"
+                onChange={(e) => setAns2(e.target.value)}
+              />
+              <label class="form-check-label" for="inlineRadio1">
+                Tuition Fee
+              </label>
+            </div>
+            <div class="form-check form-check-inline mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="ans2"
+                id="ans2"
+                value="Books"
+                onChange={(e) => setAns2(e.target.value)}
+              />
+              <label class="form-check-label" for="inlineRadio2">
+                Books
+              </label>
+            </div>
+            <div class="form-check form-check-inline mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="ans2"
+                id="ans2"
+                value="Reservation Fee"
+                onChange={(e) => setAns2(e.target.value)}
+              />
+              <label class="form-check-label" for="inlineRadio2">
+                Reservation Fee
+              </label>
+            </div>
+            <div class="form-check form-check-inline mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="ans2"
+                id="ans2"
+                value="Other"
+                onChange={(e) => setAns2(e.target.value)}
+              />
+              <label class="form-check-label" for="inlineRadio2">
+                Other
+              </label>
+            </div>
           </Form.Group>
         </Row>
         <Form.Group className="mb-3">

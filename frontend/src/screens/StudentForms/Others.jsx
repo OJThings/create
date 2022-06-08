@@ -36,6 +36,7 @@ const Others = () => {
   const resetHandler = () => {
     setQues1("");
     setQues2("");
+    setQues3("");
     setDesc("");
   };
   const postDetails = (pics) => {
@@ -170,7 +171,7 @@ const Others = () => {
           <img src={pic} alt={picMessage} className="profilePic2" />
 
           <Card.Footer className="text-muted">
-            Creating on - {new Date().toLocaleDateString()}
+            Creating on - {new Date().toLocaleString()}
           </Card.Footer>
         </Form.Group>
 

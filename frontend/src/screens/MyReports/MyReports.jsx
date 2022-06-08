@@ -12,7 +12,7 @@ import "./Paginate.css";
 const MyProps = ({ search }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [reportPerPage] = useState(3);
+  const [reportPerPage] = useState(7);
   const [pageNumber, setPageNumber] = useState(0);
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -63,7 +63,13 @@ const MyProps = ({ search }) => {
       <MainScreen
         title={`Welcome Back ${userInfo.fname} ${userInfo.mname} ${userInfo.lname}`}
       ></MainScreen>
+
       <div className="container">
+        <Link to="/cards">
+          <Button style={{ marginLeft: 10, marginBottom: 10 }} size="lg">
+            Create new Report
+          </Button>
+        </Link>
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {errorDelete && (
           <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
@@ -171,11 +177,6 @@ const MyProps = ({ search }) => {
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationActive"}
         />
-        <Link to="/cards">
-          <Button style={{ marginLeft: 10, marginBottom: 410 }} size="lg">
-            Create new Report
-          </Button>
-        </Link>
       </div>
     </>
   );

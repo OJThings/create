@@ -9,7 +9,7 @@ import "./ProfileScreen.css";
 import Mainscreen from "../../components/MainScreen/MainScreen";
 
 
-const ProfileScreen = ({ location, history }) => {
+const ProfileScreen = () => {
   const [fname, setFname] = useState("");
   const [mname, setMname] = useState("");
   const [lname, setLname] = useState("");

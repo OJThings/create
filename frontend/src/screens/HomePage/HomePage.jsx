@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaSignInAlt, FaUserPlus, FaChalkboard } from "react-icons/fa";
+import { FaSignInAlt, FaChalkboard } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Video from "../../videos/video.mp4";
 import { useDispatch, useSelector } from "react-redux";

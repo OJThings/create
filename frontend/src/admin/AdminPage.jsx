@@ -3,6 +3,8 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUserAction, listUser } from "../actions/userActions";
+import Loading from "../components/Actions/Loading";
+import ErrorMessage from "../components/Actions/ErrorMessage";
 import "./Admin.css";
 
 const AdminPage = () => {
@@ -10,9 +12,7 @@ const AdminPage = () => {
   const navigate = useNavigate();
 
   const userList = useSelector((state) => state.userList);
-  const { users } = userList;
-  const reportList = useSelector((state) => state.reportList);
-  const { reports } = reportList;
+  const { error , loading ,users } = userList;
   const userDelete = useSelector((state) => state.userDelete);
   const {
     loading: loadingDelete,
@@ -28,13 +28,17 @@ const AdminPage = () => {
   };
   useEffect(() => {
     dispatch(listUser());
-  }, [dispatch, navigate]);
+  }, [successDelete, dispatch, navigate]);
 
   return (
-    
     <div className="container mt-5 mb-5">
       <div className="container mt-5 mb-5">
-        
+        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+        {errorDelete && (
+          <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
+        )}
+        {loading && <Loading />}
+        {loadingDelete && <Loading />}
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button
@@ -110,24 +114,24 @@ const AdminPage = () => {
             </tr>
           </thead>
           <tbody>
-              <>
-                {users?.map((user) => (
-                  <tr>
-                    <td>{user.fname}</td>
-                    <td>{user.lname}</td>
-                    <td>{user.studentnumber}</td>
-                    <td>{user.yearsection}</td>
-                    <td>{user.email}</td>
-                    
-                    <Button
-                      variant="danger"
-                      onClick={() => deleteHandler(user._id)}
-                    >
-                      Delete User
-                    </Button>
-                  </tr>
-                ))}
-              </>
+            <>
+              {users?.map((user) => (
+                <tr>
+                  <td>{user.fname}</td>
+                  <td>{user.lname}</td>
+                  <td>{user.studentnumber}</td>
+                  <td>{user.yearsection}</td>
+                  <td>{user.email}</td>
+
+                  <Button
+                    variant="danger"
+                    onClick={() => deleteHandler(user._id)}
+                  >
+                    Delete User
+                  </Button>
+                </tr>
+              ))}
+            </>
           </tbody>
         </table>
       </div>

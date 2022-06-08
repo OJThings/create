@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Form, FormControl, Nav, NavDropdown } from "react-bootstrap";
+import { Form, FormControl, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../actions/userActions";
@@ -11,7 +11,9 @@ const Header = ({ setSearch }) => {
   const { userInfo } = userLogin;
 
   const logoutHandler = () => {
-    dispatch(logout());
+    if (window.confirm("Are you sure")) {
+      dispatch(logout());
+    }
     navigate("/");
   };
 
@@ -75,7 +77,6 @@ const Header = ({ setSearch }) => {
                     My reports
                   </Link>
                   <NavDropdown
-                  
                     title={userInfo?.fname}
                     id="collasible-nav-dropdown"
                   >

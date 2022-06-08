@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Col, Row, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../../actions/userActions";
 import ErrorMessage from "../../components/Actions/ErrorMessage";
 import Loading from "../../components/Actions/Loading";
-import "./ProfileScreen.css";
 import Mainscreen from "../../components/MainScreen/MainScreen";
-
+import "./ProfileScreen.css";
 
 const ProfileScreen = () => {
   const [fname, setFname] = useState("");
@@ -179,8 +178,8 @@ const ProfileScreen = () => {
                   />
                 </Form.Group>
                 {picMessage && (
-                <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
-              )}
+                  <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
+                )}
                 <Form.Group className="mb-3">
                   <Form.Label>Update Profile Picture</Form.Label>
                   <Form.Control

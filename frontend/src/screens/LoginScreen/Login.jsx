@@ -34,7 +34,8 @@ const Login = ({ history }) => {
   };
   return (
     <>
-      <div className="container mt-5 mb-5">
+    <div className="wrapper">
+      <div className="box">
         <div className="container shadow my-5 mt-5 mb-5">
           {loading && <Loading />}
           {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
@@ -100,6 +101,7 @@ const Login = ({ history }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
